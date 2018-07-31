@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Usuario {
@@ -22,6 +24,9 @@ public class Usuario {
 	private String senha;
 	@Column
 	private Calendar nascimento;
+
+	@ManyToOne
+	private Nivel nivel;
 
 	public int getId() {
 		return id;
@@ -61,6 +66,14 @@ public class Usuario {
 
 	public void setNascimento(Calendar nascimento) {
 		this.nascimento = nascimento;
+	}
+
+	public Nivel getNivel() {
+		return nivel;
+	}
+
+	public void setNivel(Nivel nivel) {
+		this.nivel = nivel;
 	}
 
 }

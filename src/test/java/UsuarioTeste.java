@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.NoResultException;
 
 import br.com.akira.sistema.dao.UsuarioDAO;
+import br.com.akira.sistema.entidade.Nivel;
 import br.com.akira.sistema.entidade.Usuario;
 
 public class UsuarioTeste {
@@ -17,7 +18,10 @@ public class UsuarioTeste {
 //		buscaTodos();
 //		buscaPorNome();
 //		autentica();
-		
+//		buscaPorID();
+	}
+
+	private static void buscaPorID() {
 		UsuarioDAO dao = new UsuarioDAO();
 		Usuario u = dao.buscaPorID(1);
 		
@@ -25,6 +29,8 @@ public class UsuarioTeste {
 		System.out.println("Nome  : " + u.getNome());
 		System.out.println("Login : " + u.getLogin());
 		System.out.println("Senha : " + u.getSenha());
+		System.out.println("Nivel : " + u.getNivel().getDescricao());
+		
 		
 		String sdf = new SimpleDateFormat("dd/MM/yyyy").format(u.getNascimento().getTime());
 		System.out.println("Nasci : "+sdf);
@@ -38,9 +44,10 @@ public class UsuarioTeste {
 		System.out.println("Nome  : " + u.getNome());
 		System.out.println("Login : " + u.getLogin());
 		System.out.println("Senha : " + u.getSenha());
+		System.out.println("Nivel : " + u.getNivel().getDescricao());
 		
 		String sdf = new SimpleDateFormat("dd/MM/yyyy").format(u.getNascimento().getTime());
-		System.out.println(sdf);
+		System.out.println("Nasci : "+sdf);
 	}
 
 	private static void buscaPorNome() {
@@ -51,6 +58,7 @@ public class UsuarioTeste {
 			System.out.println("Nome  : " + u.getNome());
 			System.out.println("Login : " + u.getLogin());
 			System.out.println("Senha : " + u.getSenha());
+			System.out.println("Nivel : " + u.getNivel().getDescricao());
 
 			String sdf = new SimpleDateFormat("dd/MM/yyyy").format(u.getNascimento().getTime());
 			System.out.println("Nasci : " + sdf);
@@ -66,6 +74,8 @@ public class UsuarioTeste {
 			System.out.println("Nome  : " + u.getNome());
 			System.out.println("Login : " + u.getLogin());
 			System.out.println("Senha : " + u.getSenha());
+			System.out.println("Nivel : " + u.getNivel().getDescricao());
+			
 
 			String data = new SimpleDateFormat("dd/MM/yyyy").format(u.getNascimento().getTime());
 			System.out.println("Nasci : " + data);
@@ -80,14 +90,19 @@ public class UsuarioTeste {
 	private static void salvar() {
 		Usuario u = new Usuario();
 		u.setId(0);
-		u.setNome("Pedro");
-		u.setLogin("ped");
-		u.setSenha("444");
+		u.setNome("João");
+		u.setLogin("joa");
+		u.setSenha("555");
+		
+		Nivel nivel = new Nivel();
+		nivel.setId(2);
+		
+		u.setNivel(nivel);
 
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		Calendar cal = Calendar.getInstance();
 		try {
-			cal.setTime(sdf.parse("30/12/1988"));
+			cal.setTime(sdf.parse("22/11/1980"));
 			u.setNascimento(cal);
 		} catch (ParseException e) {
 			e.printStackTrace();

@@ -122,6 +122,9 @@ public class UsuarioDAO {
 			return (Usuario) usuario;
 		} catch (Exception e) {
 			System.out.println(e);
+		}finally {
+			em.close();
+			emf.close();
 		}
 		return null;
 	}
@@ -140,6 +143,9 @@ public class UsuarioDAO {
 			return (Usuario) usuario;
 		}catch (Exception e) {
 			System.out.println("ID inexistente "+e);
+		}finally {
+			em.close();
+			emf.close();
 		}
 		return null;
 	}

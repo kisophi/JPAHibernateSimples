@@ -10,7 +10,9 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
 		<!-- entidade mapeada -->
-		<class>br.com.caelum.tarefas.modelo.Tarefa</class>
+		<class>br.com.akira.sistema.entidade.Usuario</class>
+		<class>br.com.akira.sistema.entidade.Nivel</class>
+		
 
 		<properties>
 			<!-- dados da conexao -->

@@ -15,7 +15,7 @@ public class UsuarioTeste {
 
 //		salvar();
 //		exclui();
-//		buscaTodos();
+		buscaTodos();
 //		buscaPorNome();
 //		autentica();
 //		buscaPorID();

@@ -2,11 +2,37 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <display-name>JPAHibernateSimples</display-name>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>login.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>UsuarioController</display-name>
+    <servlet-name>UsuarioController</servlet-name>
+    <servlet-class>br.com.akira.sistema.controller.UsuarioController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UsuarioController</servlet-name>
+    <url-pattern>/UsuarioController</url-pattern>
+    <url-pattern>/usuController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UsuarioLogin</display-name>
+    <servlet-name>UsuarioLogin</servlet-name>
+    <servlet-class>br.com.akira.sistema.controller.UsuarioLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UsuarioLogin</servlet-name>
+    <url-pattern>/UsuarioLogin</url-pattern>
+    <url-pattern>/usuLogin</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <display-name>Filtro</display-name>
+    <filter-name>Filtro</filter-name>
+    <filter-class>br.com.akira.sistema.filter.Filtro</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>Filtro</filter-name>
+    <url-pattern>/Filtro</url-pattern>
+  </filter-mapping>
 </web-app>

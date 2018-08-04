@@ -51,6 +51,23 @@ public class UsuarioController extends HttpServlet {
 		else if (acao.equals("excluir")) {
 			excluir(request, response);
 		}
+
+		//acao procurar
+		else if (acao.equals("procurar")) {
+			procurar(request, response);
+		}
+		
+	}
+
+	private void procurar(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String nome = request.getParameter("nome");
+		
+		UsuarioDAO dao = new UsuarioDAO();
+		List<Usuario> usuProcurar = dao.buscaPorNome(nome);
+		
+		request.setAttribute("usuProcurar", usuProcurar);
+		request.getRequestDispatcher("WEB-INF/usuarioListaProcurar.jsp").forward(request, response);
 	}
 
 	private void excluir(HttpServletRequest request, HttpServletResponse response) throws IOException {

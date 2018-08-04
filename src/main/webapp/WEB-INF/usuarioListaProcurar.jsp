@@ -15,13 +15,6 @@
 		<fieldset>
 			<legend>LISTA DE USUARIOS</legend>
 			
-			<table>
-				<tr>
-					<td><input type="text" name="nome"> </td>
-					<td><input type="submit" name="acao" value="procurar"> </td>
-				</tr>
-			</table>
-
 			<!-- 	TABELA DE USUARIOS -->
 			<table border="1">
 				<tr>
@@ -35,8 +28,8 @@
 					<th>Remover</th>
 				</tr>
 
-				<!--	FOR DA SESSION DE USUARIO -->
-				<c:forEach items="${lista}" var="u">
+				<!--	FOR DA SESSION DO USUARIO PROCURADO -->
+				<c:forEach items="${usuProcurar}" var="u">
 					<tr>
 						<td>${u.id}</td>
 						<td>${u.nome}</td>
@@ -51,6 +44,9 @@
 					</tr>
 				</c:forEach>
 			</table>
+
+			<!-- BOTAO VOLTAR -->
+			<a href="usuController">VOLTAR</a>
 		</fieldset>
 	</form>
 

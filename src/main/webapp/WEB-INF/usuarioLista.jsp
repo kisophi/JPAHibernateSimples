@@ -14,11 +14,12 @@
 	<form action="usuController" method="get">
 		<fieldset>
 			<legend>LISTA DE USUARIOS</legend>
-			
+
 			<table>
 				<tr>
-					<td><input type="text" name="nome"> </td>
-					<td><input type="submit" name="acao" value="procurar"> </td>
+					<td><input type="text" name="nome"></td>
+					<td><input type="submit" name="acao" value="procurar">
+					</td>
 				</tr>
 			</table>
 
@@ -31,8 +32,12 @@
 					<th>Senha</th>
 					<th>Nascimento</th>
 					<th>Nivel</th>
-					<th>Editar</th>
-					<th>Remover</th>
+
+					<!-- CONTROLE DE NIVEL DE ACESSO -->
+					<c:if test="${usuarioNivelID==1}">
+						<th>Editar</th>
+						<th>Remover</th>
+					</c:if>
 				</tr>
 
 				<!--	FOR DA SESSION DE USUARIO -->
@@ -44,10 +49,14 @@
 						<td>${u.senha}</td>
 						<td><fmt:formatDate value="${u.nascimento.time}" /></td>
 						<td>${u.nivel.descricao}</td>
-						<td><a href="usuController?acao=atualizar&id=${u.id}">Atualizar</a>
-						</td>
-						<td><a href="usuController?acao=excluir&id=${u.id}">Excluir</a>
-						</td>
+
+						<!-- CONTROLE DE NIVEL DE ACESSO -->
+						<c:if test="${usuarioNivelID==1}">
+							<td><a href="usuController?acao=atualizar&id=${u.id}">Atualizar</a>
+							</td>
+							<td><a href="usuController?acao=excluir&id=${u.id}">Excluir</a>
+							</td>
+						</c:if>
 					</tr>
 				</c:forEach>
 			</table>
@@ -57,8 +66,11 @@
 	<!-- 	BOTAO NOVO E SAIR -->
 	<table>
 		<tr>
-			<td><a href="usuController?acao=inserir">Novo</a></td>
-			<td>||</td>
+			<!-- CONTROLE DE NIVEL DE ACESSO -->
+			<c:if test="${usuarioNivelID==1}">
+				<td><a href="usuController?acao=inserir">Novo</a></td>
+				<td>||</td>
+			</c:if>
 			<td><a href="usuLogin">Sair</a></td>
 		</tr>
 	</table>

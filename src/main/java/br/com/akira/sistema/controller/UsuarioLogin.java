@@ -47,12 +47,19 @@ public class UsuarioLogin extends HttpServlet {
 		} else {
 			//Cria a Sessao
 			HttpSession sessao = request.getSession();
+			
 			//Tempo de vida da sessao sem MEXER eh de 5min, passando disso a sessao expira
 			sessao.setMaxInactiveInterval(60*5);
+			
 			//Seta o usuario na sessao
 			sessao.setAttribute("usuAutenticado", usuAutenticado);
+			
 			//Seta o nome do usuario
 			sessao.setAttribute("usuarioSessaoNome", usuAutenticado.getNome());
+			
+			//Seta o Valor do nivel ID do usuario
+			sessao.setAttribute("usuarioNivelID", usuAutenticado.getNivel().getId());
+			
 			//redireciona para usuController/lista
 			response.sendRedirect("usuController");
 		}

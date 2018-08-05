@@ -1,4 +1,5 @@
 # JPAHibernateSimples
+Banco de dados Mysql
 ```mysql
 CREATE DATABASE usuariodb;
 CREATE TABLE nivel(

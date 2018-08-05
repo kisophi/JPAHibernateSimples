@@ -2,6 +2,7 @@
 Banco de dados Mysql
 ```mysql
 CREATE DATABASE usuariodb;
+USE usuariodb;
 CREATE TABLE nivel(
 	id INT NOT NULL,
 	descricao VARCHAR(45)NOT NULL,

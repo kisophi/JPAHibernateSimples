@@ -21,7 +21,7 @@ CREATE TABLE usuario(
 
 -- PREENCHER OS CAMPOS DA TABLE NIVEL
 INSERT INTO nivel VALUES (1,'Administrador');
-INSERT INTO nivel VALUES (1,'Usuario Comun');
+INSERT INTO nivel VALUES (2,'Usuario Comun');
 
 -- PREENCHER OS CAMPOS DA TABELA USUARIO
 INSERT INTO usuario VALUES (null,'Akira Matsumoto','akira','123',01/01/1999,1);

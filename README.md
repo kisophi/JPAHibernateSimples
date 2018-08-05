@@ -1,5 +1,5 @@
 # JPAHibernateSimples
-``` 
+```mysql
 CREATE DATABASE usuariodb;
 CREATE TABLE nivel(
 	id INT NOT NULL,
